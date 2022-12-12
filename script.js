@@ -22,12 +22,15 @@ function createTimeSchedule() {
         scheduleItem[i];
         if (selectedTIme ==currentTime){
             stageOfTime== 'present';
+            scheduleItem.addClass('present');
         }
         else if (selectedTIme >currentTime){
             stageOfTime=='future';
+            scheduleItem.addClass('future');
         }
         else (selectedTIme< currentTime){
             stageOfTime=='past';
+            scheduleItem.addClass('past');
         }
     }
 }
