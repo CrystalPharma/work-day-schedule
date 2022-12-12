@@ -28,7 +28,7 @@ function createTimeSchedule() {
             stageOfTime == 'future';
             scheduleItem.addClass('future');
         }
-        else (selectedTIme < currentTime){
+        else {
             stageOfTime == 'past';
             scheduleItem.addClass('past');
         }
