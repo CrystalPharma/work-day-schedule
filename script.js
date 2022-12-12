@@ -20,16 +20,16 @@ scheduleItem.addClass('row time-block');
 function createTimeSchedule() {
     for (var i = 9; i < [totalHours + 9]; i++) {
         scheduleItem[i];
-        if (selectedTIme ==currentTime){
-            stageOfTime== 'present';
+        if (selectedTIme == currentTime) {
+            stageOfTime == 'present';
             scheduleItem.addClass('present');
         }
-        else if (selectedTIme >currentTime){
-            stageOfTime=='future';
+        else if (selectedTIme > currentTime) {
+            stageOfTime == 'future';
             scheduleItem.addClass('future');
         }
-        else (selectedTIme< currentTime){
-            stageOfTime=='past';
+        else (selectedTIme < currentTime){
+            stageOfTime == 'past';
             scheduleItem.addClass('past');
         }
     }
