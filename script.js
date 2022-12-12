@@ -4,7 +4,8 @@ $("#currentDay").text(time);
 
 // Timeblocks display for standard business hours create elements
 var currentTime = moment().format('HH');
-var selectedTime;
+var startTime = moment().startOf('day').add(8, 'hh');
+console.log(startTime);
 var stageOfTime;
 // console.log (currentTime);
 
