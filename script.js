@@ -3,13 +3,36 @@ var time = moment().format('dddd MMMM Do YYYY');
 $("#currentDay").text(time);
 
 // Timeblocks display for standard business hours create elements
+var totalHours = 17 - 9; //8 hrs schedule from 9am until 17:00pm
+// console.log(totalHours);
 var currentTime = moment().format('HH');
-var startTime = moment().startOf('day').add(8, 'hh');
-console.log(startTime);
+var startTime = moment().startOf('09:00');
+var timeTableElement;
 var stageOfTime;
+var selectedTIme;
 // console.log (currentTime);
+console.log(startTime);
 
 //Color-code for past, present and future
+
+var scheduleItem = $('.container').append('<div> </div>');
+scheduleItem.addClass('row time-block');
+function createTimeSchedule() {
+    for (var i = 9; i < [totalHours + 9]; i++) {
+        scheduleItem[i];
+        if (selectedTIme ==currentTime){
+            stageOfTime== 'present';
+        }
+        else if (selectedTIme >currentTime){
+            stageOfTime=='future';
+        }
+        else (selectedTIme< currentTime){
+            stageOfTime=='past';
+        }
+    }
+}
+
+
 
 // Enter event when select on timeblock
 
