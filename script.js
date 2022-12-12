@@ -10,13 +10,15 @@ var startTime = moment().startOf('09:00');
 var timeTableElement;
 var stageOfTime;
 var selectedTIme;
-// console.log (currentTime);
-console.log(startTime);
+// // console.log (currentTime);
+// console.log(startTime);
 
 //Color-code for past, present and future
 
-var scheduleItem = $('.container').append('<div> </div>');
+var scheduleItem = $('.container').append('<div> Time </div>');
+console.log(scheduleItem);
 scheduleItem.addClass('row time-block');
+
 function createTimeSchedule() {
     for (var i = 9; i < [totalHours + 9]; i++) {
         scheduleItem[i];
@@ -32,11 +34,28 @@ function createTimeSchedule() {
             stageOfTime == 'past';
             scheduleItem.addClass('past');
         }
-    }
+} createTimeSchedule ();
 }
 
 
+// function for save schedule in the local storage
+// function saveSchedule() {
+
+//     var keyName = $(this).parent().attr('id');
+//     var keyValue = $(this).parent().children().eq(1).val();
+
+//     localStorage.setItem(keyName, keyValue);
+// }
+
+// // functino to get back the data from the local storage and print it out in to the textarea attribute
+// function loadSchedule() {
+
+//     for (var hour = 9; hour < [totalHours+9]; hour++) {
+//         var loadedSchedule = localStorage.getItem(`hour-${selectedTime}`);
+
+//         $(`.${selectedTIme}`).val(loadedSchedule);
+//     }
+
+// }
 
 // Enter event when select on timeblock
-
-// Save event local storage upon clicking save botton
