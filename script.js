@@ -23,32 +23,30 @@ timeBlock.addClass('col-md 2');
 let timeBlockEl = $('<span>');
 timeBlockEl
 //Color-code for past, present and future
+var tableBlock = document.createElement(`<div class="row time-block ${stageOfTime}">
+<div class="col-md-1 hour">${timeTableElement}</div>
+<textarea class="col-md-10 description"></textarea>
+<button class="btn saveBtn col-md-1">
+    <i class="fas fa-save"></i>
+</button>)     
+</div>`);
+$('.container').append(tableBlock);
+    function createTimeSchedule() {
+        for (var i = 9; i < [totalHours + 9]; i++) {
+            timeTableElement = moment().startOf('day').add(9, 'hours').format('HH:mm A');
 
-var timeTableElement = 
-function createTimeSchedule() {
-    for (var i = 9; i < [totalHours + 9]; i++) {
-        timeTableElement = moment().startOf('day').add(9, 'hours').format('HH:mm A');
-
-        if (selectedTIme == currentTime) {
-            stageOfTime == 'present';
-        }
-        else if (selectedTIme > currentTime) {
-            stageOfTime == 'future';
-        }
-        else {
-            stageOfTime == 'past';
-        }
-        var tableBlock = 
-        `<div class="row time-block ${stageOfTime}">
-            <div class="col-md-1 hour">${timeTableElement}</div>
-            <textarea class="col-md-10 description"></textarea>
-            <button class="btn saveBtn col-md-1">
-                <i class="fas fa-save"></i>
-            </button>
-        </div>`;
-    $('.container').append(tableBlock);
-} createTimeSchedule ();
-}
+            if (selectedTIme == currentTime) {
+                stageOfTime == 'present';
+            }
+            else if (selectedTIme > currentTime) {
+                stageOfTime == 'future';
+            }
+            else {
+                stageOfTime == 'past';
+            }
+        } 
+        createTimeSchedule();
+    }
 
 
 
@@ -73,3 +71,6 @@ function createTimeSchedule() {
 // }
 
 // Enter event when select on timeblock
+
+//Call function
+createTimeSchedule();
