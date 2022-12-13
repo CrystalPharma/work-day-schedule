@@ -6,36 +6,50 @@ $("#currentDay").text(time);
 var totalHours = 17 - 9; //8 hrs schedule from 9am until 17:00pm
 // console.log(totalHours);
 var currentTime = moment().format('HH');
-var startTime = moment().startOf('09:00');
 var timeTableElement;
 var stageOfTime;
-var selectedTIme;
+var selectedTime;
 // // console.log (currentTime);
 // console.log(startTime);
 
+//row element
+let rowEl = $('<div>');
+rowEl.addClass('row time-block $(stageOfTime)')
+//build Time box 
+let timeBlock = $('<div>');
+timeBlock.addClass('col-md 2');
+
+//build Time box element
+let timeBlockEl = $('<span>');
+timeBlockEl
 //Color-code for past, present and future
 
-var scheduleItem = $('.container').append('<div> Time </div>');
-console.log(scheduleItem);
-scheduleItem.addClass('row time-block');
-
+var timeTableElement = 
 function createTimeSchedule() {
     for (var i = 9; i < [totalHours + 9]; i++) {
-        scheduleItem[i];
+        timeTableElement = moment().startOf('day').add(9, 'hours').format('HH:mm A');
+
         if (selectedTIme == currentTime) {
             stageOfTime == 'present';
-            scheduleItem.addClass('present');
         }
         else if (selectedTIme > currentTime) {
             stageOfTime == 'future';
-            scheduleItem.addClass('future');
         }
         else {
             stageOfTime == 'past';
-            scheduleItem.addClass('past');
         }
+        var tableBlock = 
+        `<div class="row time-block ${stageOfTime}">
+            <div class="col-md-1 hour">${timeTableElement}</div>
+            <textarea class="col-md-10 description"></textarea>
+            <button class="btn saveBtn col-md-1">
+                <i class="fas fa-save"></i>
+            </button>
+        </div>`;
+    $('.container').append(tableBlock);
 } createTimeSchedule ();
 }
+
 
 
 // function for save schedule in the local storage
