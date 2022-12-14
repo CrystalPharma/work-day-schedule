@@ -5,17 +5,22 @@ $("#currentDay").text(time);
 // Timeblocks display for standard business hours create elements
 var totalHours = 17 - 9; //8 hrs schedule from 9am until 17:00pm
 // console.log(totalHours);
-var initialTime = moment('09:00 AM','hh:mm A').format('HH:mm A') ;
+var AA;
+var initialTime =  moment().startOf('day').add(9, 'hours').format('HH:aa');
 console.log(initialTime);
 var stageOfTime;
-var selectedTime;
+var currentTime = moment().format('HH: aa');
+
+
+console.log(currentTime);
 
 var timeContainer = $('.container');
 var childNode = timeContainer.children;
+
 childNode =
 `<div class="row time-block">
                 <div class="col-md-1 hour id="${hourEl}">${hourEl}</div>
-                <textarea class="col-md-10 description"></textarea>
+                <textarea class="col-md-10 description ${stageOfTime}"></textarea>
                 <button class="btn saveBtn col-md-1">
                     <i class="fas fa-save"></i>
                 </button>
@@ -25,10 +30,22 @@ console.log(timeContainer.children);
 //for loop to create meultiple childNodes
 for (i= 0; i < 9; i++){
     timeContainer.append(childNode)[i];
-    var hourEl = 9 + i;
+    var hourEl = parseInt(initialTime) + i ;
+
+    // if statement for determining the stage of time add associate class to textarea
+    if (currentTime > hourEl){
+    stageOfTime = 'future';
+    }
+    else if (currentTime == hourEl){
+    stageOfTime = 'present';
+    }
+    else {
+    stageOfTime = 'past';
+    }
+
 }
 
-// innerHTML of all childNode div
+
 
 
 
