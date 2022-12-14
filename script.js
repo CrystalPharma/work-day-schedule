@@ -5,35 +5,36 @@ $("#currentDay").text(time);
 // Timeblocks display for standard business hours create elements
 var totalHours = 17 - 9; //8 hrs schedule from 9am until 17:00pm
 // console.log(totalHours);
-var currentTime = moment('09:00 AM','hh:mm A').format('HH:mm A') ;
-console.log(currentTime);
+var initialTime = moment('09:00 AM','hh:mm A').format('HH:mm A') ;
+console.log(initialTime);
 var stageOfTime;
 var selectedTime;
-// // console.log (currentTime);
 
 var timeContainer = $('.container');
 var childNode = timeContainer.children;
 childNode =
 `<div class="row time-block">
-                <div class="col-md-1 hour id="time-contain"></div>
+                <div class="col-md-1 hour id="${hourEl}">${hourEl}</div>
                 <textarea class="col-md-10 description"></textarea>
                 <button class="btn saveBtn col-md-1">
                     <i class="fas fa-save"></i>
                 </button>
 </div>`;
-timeContainer.append(childNode);
 console.log(timeContainer.children);
-timeContainer.append(childNode);
-timeContainer.append(childNode);
-timeContainer.append(childNode);
-timeContainer.append(childNode);
-timeContainer.append(childNode);
-timeContainer.append(childNode);
+
+//for loop to create meultiple childNodes
+for (i= 0; i < 9; i++){
+    timeContainer.append(childNode)[i];
+    var hourEl = 9 + i;
+}
+
+// innerHTML of all childNode div
 
 
-for (hour = 0; hour < 9; hour++) { 
+
+// for (hour = 0; hour < 9; hour++) { 
     
-    $('#time-contain').innerHTML = 9 + hour};
+//     $('#time-contain').innerHTML = 9 + hour};
     
 
 
