@@ -5,20 +5,88 @@ $("#currentDay").text(time);
 // Timeblocks display for standard business hours create elements
 var totalHours = 17 - 9; //8 hrs schedule from 9am until 17:00pm
 // console.log(totalHours);
-var currentTime = moment().format('HH');
+var currentTime = moment('09:00 AM','hh:mm A').format('HH:mm A') ;
 console.log(currentTime);
 var stageOfTime;
 var selectedTime;
 // // console.log (currentTime);
-// console.log(startTime);
-var timeContainer = document.querySelector('#time-contain');
-var timeContainerEl = document.createElement("p");
-timeContainer.appendChild(timeContainerEl);
 
-for (var hour = 9; hour <= 17; hour ++) {
-    timeContainerEl.innerHTML = hour ;
-}
+var timeContainer = $('.container');
+var childNode = timeContainer.children;
+childNode =
+`<div class="row time-block">
+                <div class="col-md-1 hour id="time-contain"></div>
+                <textarea class="col-md-10 description"></textarea>
+                <button class="btn saveBtn col-md-1">
+                    <i class="fas fa-save"></i>
+                </button>
+</div>`;
+timeContainer.append(childNode);
+console.log(timeContainer.children);
+timeContainer.append(childNode);
+timeContainer.append(childNode);
+timeContainer.append(childNode);
+timeContainer.append(childNode);
+timeContainer.append(childNode);
+timeContainer.append(childNode);
 
+
+for (hour = 0; hour < 9; hour++) { 
+    
+    $('#time-contain').innerHTML = 9 + hour};
+    
+
+
+// //create form with 8 rows
+// var directChild = $('.container').append('<div "hour" class="row time-block"></div>');
+// var children = directChild.append('<div class="col-md-1 hour "id="time-contain">9</div><textarea class="col-md-10 description"></textarea>' ,
+// '<button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>');
+// function createPara(n) { 
+//     var timeContainer = document.querySelector('#schedule-items');
+//     var tmpTimeContainer = document.querySelector('#hour');
+//     console.log(timeContainer)
+//     console.log(tmpTimeContainer)
+//     // console.log(totalHours)
+//     for (let i = 0 ; i< n; i++) {    
+//         var timeContainerEl = document.createElement("div");
+//         timeContainerEl.innerHTML = parseInt(currentTime) +i
+//         +'';
+
+
+//         timeContainer.appendChild(timeContainerEl);
+//         var timeTextArea = document.createElement('textarea');
+//         timeTextArea.classList.add('col-md-10')
+//         timeTextArea.classList.add('description')
+//         timeContainer.appendChild(timeTextArea);
+
+//         var timeBtn = document.createElement('button');
+//         timeBtn.classList.add('btn')
+//         timeBtn.classList.add('saveBtn')
+//         timeBtn.classList.add('col-md-1')
+//         var timeI = document.createElement('i');
+//         timeI.classList.add('fas');
+//         timeI.classList.add('fa-save');
+//         timeBtn.appendChild(timeI)
+
+//         timeContainer.appendChild(timeBtn);
+    
+//     }
+//     console.log(timeContainer)
+//   }
+// createPara(totalHours);
+
+
+// // time Slot for 9 - 17 in array
+// var items;
+// function timeSlot() {
+//     const items = []
+//     for (let hour = 9; hour < 18; hour++) {
+//       items.push(moment({ hour }).format('h a'))
+//     }
+//     return items
+//     timeSlot();
+//   }
+  
 
 
 
