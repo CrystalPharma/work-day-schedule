@@ -17,31 +17,33 @@ console.log(currentTime);
 var timeContainer = $('.container');
 var childNode = timeContainer.children;
 
-childNode =
-`<div class="row time-block">
-                <div class="col-md-1 hour id="${hourEl}">${hourEl}</div>
-                <textarea class="col-md-10 description ${stageOfTime}"></textarea>
-                <button class="btn saveBtn col-md-1">
-                    <i class="fas fa-save"></i>
-                </button>
-</div>`;
+
 console.log(timeContainer.children);
 
 //for loop to create meultiple childNodes
-for (i= 0; i < 9; i++){
-    timeContainer.append(childNode)[i];
+for (var i= 0; i < 9; i++){
     var hourEl = parseInt(initialTime) + i ;
-
-    // if statement for determining the stage of time add associate class to textarea
-    if (currentTime > hourEl){
-    stageOfTime = 'future';
-    }
-    else if (currentTime == hourEl){
-    stageOfTime = 'present';
-    }
-    else {
-    stageOfTime = 'past';
-    }
+     // if statement for determining the stage of time add associate class to textarea
+     if (currentTime > hourEl){
+        stageOfTime = 'future';
+        }
+        else if (currentTime == hourEl){
+        stageOfTime = 'present';
+        }
+        else {
+        stageOfTime = 'past';
+        }
+    var childNode =
+    `<div class="row time-block">
+                    <div class="col-md-1 hour id="${hourEl}">${hourEl}</div>
+                    <textarea class="col-md-10 description ${stageOfTime}"></textarea>
+                    <button class="btn saveBtn col-md-1">
+                        <i class="fas fa-save"></i>
+                    </button>
+    </div>`;
+    
+    timeContainer.append(childNode);
+   
 
 }
 
@@ -105,40 +107,6 @@ for (i= 0; i < 9; i++){
 //     timeSlot();
 //   }
   
-
-
-
-//Color-code for past, present and future
-// for (var i = 9; i <= 17; i++) {
-    
-//     if (selectedTIme == currentTime) {
-//         stageOfTime == 'present';
-//     }
-//     else if (selectedTIme > currentTime) {
-//         stageOfTime == 'future';
-//     }
-//     else {
-//         stageOfTime == 'past';
-//     }
-
-// }
-
-// function createTimeSchedule() {
-//     for (var i = 9; i <= 17; i++) {
-    
-//         if (selectedTIme == currentTime) {
-//             stageOfTime == 'present';
-//         }
-//         else if (selectedTIme > currentTime) {
-//             stageOfTime == 'future';
-//         }
-//         else {
-//             stageOfTime == 'past';
-//         }
-   
-//     }
-
-// }
 
 // function loadSchedule() {
 
