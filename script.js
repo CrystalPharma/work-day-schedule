@@ -6,7 +6,7 @@ $("#currentDay").text(time);
 var totalHours = 17 - 9; //8 hrs schedule from 9am until 17:00pm
 // console.log(totalHours);
 var AA;
-var initialTime =  moment().startOf('day').add(9, 'hours').format('HH');
+var initialTime = moment().startOf('day').add(9, 'hours').format('HH');
 // console.log(initialTime);
 var stageOfTime;
 var currentTime = moment().format('HH');
@@ -20,28 +20,28 @@ var timeContainer = $('.container');
 var saveButton = document.querySelectorAll('.saveBtn');
 
 //for loop to create meultiple childNodes
-for (var i= 0; i < 9; i++){
-    var hourEl = parseInt(initialTime) + i ;
+for (var i = 0; i < 9; i++) {
+    var hourEl = parseInt(initialTime) + i;
     console.log(hourEl);
-     // if statement for determining the stage of time add associate class to textarea
-     if (currentTime < hourEl){
+    // if statement for determining the stage of time add associate class to textarea
+    if (currentTime < hourEl) {
         stageOfTime = 'future';
-        }
-        else if (currentTime == hourEl){
+    }
+    else if (currentTime == hourEl) {
         stageOfTime = 'present';
-        }
-        else {
+    }
+    else {
         stageOfTime = 'past';
-        }
+    }
     var childNode =
-    `<div class="row time-block">
+        `<div class="row time-block">
                     <div class="col-md-1 hour id="${hourEl}">${hourEl}</div>
                     <textarea class="col-md-10 description ${stageOfTime}"></textarea>
                     <button class="btn saveBtn col-md-1">
                         <i class="fas fa-save"></i>
                     </button>
     </div>`;
-    
+
     timeContainer.append(childNode);
 }
 
