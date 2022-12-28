@@ -14,9 +14,10 @@ var currentTime = moment().format('HH');
 
 var timeContainer = $('.container');
 // var childNode = timeContainer.children;
-
-
 // console.log(timeContainer.children);
+
+// save button 
+var saveButton = document.querySelectorAll('.saveBtn');
 
 //for loop to create meultiple childNodes
 for (var i= 0; i < 9; i++){
@@ -42,6 +43,8 @@ for (var i= 0; i < 9; i++){
     </div>`;
     
     timeContainer.append(childNode);
-   
-
 }
+
+// localStorage
+// enter in textarea and click on save Btn save text content in local storage 
+
