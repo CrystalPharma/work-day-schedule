@@ -57,7 +57,6 @@ console.log(childNode);
 //     console.log(element);
 
 // });
-var keyName = $(this).parent().attr('id');
 
 function saveContent() {
     var keyValue = $(this).parent().children().eq(1).val();
