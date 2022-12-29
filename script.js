@@ -57,15 +57,14 @@ console.log(childNode);
 //     console.log(element);
 
 // });
-function saveSchedule() {
+var keyName = $(this).parent().attr('id');
 
-    var keyName = $(this).parent().attr('id');
+function saveContent() {
     var keyValue = $(this).parent().children().eq(1).val();
-
-    localStorage.setItem(keyName, keyValue);
+    localStorage.setItem("content", keyValue);
 }
 
-// functino to get back the data from the local storage and print it out in to the textarea attribute
+// function retrieving local storage data and print to the textarea
 function loadSchedule() {
 
     for (var i = 0; i < totalHours; i++) {
@@ -77,4 +76,4 @@ function loadSchedule() {
 
 }
 
-$('.saveBtn').on('click', saveSchedule);
+$('.saveBtn').on('click', saveContent);
