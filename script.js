@@ -16,13 +16,12 @@ var timeContainer = $('.container');
 // var childNode = timeContainer.children;
 // console.log(timeContainer.children);
 
-//text inside textarea of div
-
 
 // All save button elements
 var buttons = $('.saveBtn');
 
-// text
+//text inside textarea of div
+var userContent = $('.description')
 
 //for loop to create meultiple childNodes
 for (var i = 0; i < 9; i++) {
@@ -40,8 +39,8 @@ for (var i = 0; i < 9; i++) {
     }
     var childNode =
         `<div class="row time-block">
-                    <div class="col-md-1 hour id="${hourEl}">${hourEl}</div>
-                    <textarea class="col-md-10 description ${stageOfTime} text-${hourEl}"></textarea>
+                    <div class="col-md-1 hour" id="${hourEl}">${hourEl}</div>
+                    <textarea class="col-md-10 description ${stageOfTime} text-${hourEl}" id ="hour-${hourEl}"></textarea>
                     <button class="btn saveBtn col-md-1 btn-${hourEl}">
                         <i class="fas fa-save"></i>
                     </button>
@@ -51,16 +50,10 @@ for (var i = 0; i < 9; i++) {
 }
 console.log(childNode);
 
-// //save content function
-// buttons.click(function(event){
-//     var element = event.target;
-//     console.log(element);
-
-// });
-
 function saveContent() {
+    var keyContent = $(this).parent().children().eq(1).attr('id');
     var keyValue = $(this).parent().children().eq(1).val();
-    localStorage.setItem("content", keyValue);
+    localStorage.setItem(keyContent, keyValue);
 }
 
 // function retrieving local storage data and print to the textarea
@@ -69,10 +62,9 @@ function loadSchedule() {
     for (var i = 0; i < totalHours; i++) {
         var hourEl = parseInt(initialTime) + i;
         var loadedSchedule = localStorage.getItem(`hour-${hourEl}`);
-
-        $(`.${hourEl}`).val(loadedSchedule);
+        $(`#hour-${hourEl}`).val(loadedSchedule);
     }
-
 }
 
+loadSchedule();
 $('.saveBtn').on('click', saveContent);
