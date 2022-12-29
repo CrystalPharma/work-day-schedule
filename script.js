@@ -5,7 +5,7 @@ $("#currentDay").text(time);
 // Timeblocks display for standard business hours create elements
 var totalHours = 17 - 9; //8 hrs schedule from 9am until 17:00pm
 // console.log(totalHours);
-var AA;
+
 var initialTime = moment().startOf('day').add(9, 'hours').format('HH');
 // console.log(initialTime);
 var stageOfTime;
@@ -16,8 +16,13 @@ var timeContainer = $('.container');
 // var childNode = timeContainer.children;
 // console.log(timeContainer.children);
 
-// save button 
-var saveButton = document.querySelectorAll('.saveBtn');
+//text inside textarea of div
+
+
+// All save button elements
+var buttons = $('.time-block.saveBtn');
+
+// text
 
 //for loop to create meultiple childNodes
 for (var i = 0; i < 9; i++) {
@@ -36,15 +41,18 @@ for (var i = 0; i < 9; i++) {
     var childNode =
         `<div class="row time-block">
                     <div class="col-md-1 hour id="${hourEl}">${hourEl}</div>
-                    <textarea class="col-md-10 description ${stageOfTime}"></textarea>
-                    <button class="btn saveBtn col-md-1">
+                    <textarea class="col-md-10 description ${stageOfTime} text-${hourEl}"></textarea>
+                    <button class="btn saveBtn col-md-1 btn-${hourEl}">
                         <i class="fas fa-save"></i>
                     </button>
     </div>`;
 
     timeContainer.append(childNode);
 }
+console.log(childNode);
 
-// localStorage
-// enter in textarea and click on save Btn save text content in local storage 
-
+//save content function
+buttons.click(function(event){
+    var element = event.target;
+    console.log(element);
+});
