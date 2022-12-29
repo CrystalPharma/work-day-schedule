@@ -13,20 +13,13 @@ var currentTime = moment().format('HH');
 // console.log(currentTime);
 
 var timeContainer = $('.container');
-// var childNode = timeContainer.children;
-// console.log(timeContainer.children);
 
-
-// All save button elements
-var buttons = $('.saveBtn');
-
-//text inside textarea of div
 var userContent = $('.description')
 
 //for loop to create meultiple childNodes
 for (var i = 0; i < 9; i++) {
     var hourEl = parseInt(initialTime) + i;
-    console.log(hourEl);
+    
     // if statement for determining the stage of time add associate class to textarea
     if (currentTime < hourEl) {
         stageOfTime = 'future';
@@ -51,8 +44,8 @@ for (var i = 0; i < 9; i++) {
 console.log(childNode);
 
 function saveContent() {
-    var keyContent = $(this).parent().children().eq(1).attr('id');
-    var keyValue = $(this).parent().children().eq(1).val();
+    var keyContent = $(this).siblings().eq(1).attr('id');
+    var keyValue = $(this).siblings().eq(1).val();
     localStorage.setItem(keyContent, keyValue);
 }
 
