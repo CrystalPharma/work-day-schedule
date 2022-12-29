@@ -20,7 +20,7 @@ var timeContainer = $('.container');
 
 
 // All save button elements
-var buttons = $('.time-block.saveBtn');
+var buttons = $('.saveBtn');
 
 // text
 
@@ -51,8 +51,30 @@ for (var i = 0; i < 9; i++) {
 }
 console.log(childNode);
 
-//save content function
-buttons.click(function(event){
-    var element = event.target;
-    console.log(element);
-});
+// //save content function
+// buttons.click(function(event){
+//     var element = event.target;
+//     console.log(element);
+
+// });
+function saveSchedule() {
+
+    var keyName = $(this).parent().attr('id');
+    var keyValue = $(this).parent().children().eq(1).val();
+
+    localStorage.setItem(keyName, keyValue);
+}
+
+// functino to get back the data from the local storage and print it out in to the textarea attribute
+function loadSchedule() {
+
+    for (var i = 0; i < totalHours; i++) {
+        var hourEl = parseInt(initialTime) + i;
+        var loadedSchedule = localStorage.getItem(`hour-${hourEl}`);
+
+        $(`.${hourEl}`).val(loadedSchedule);
+    }
+
+}
+
+$('.saveBtn').on('click', saveSchedule);
